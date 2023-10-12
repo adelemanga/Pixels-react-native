@@ -3,6 +3,9 @@ import { View, Text } from "react-native";
 import { globalStyles } from "../styles/AppStyles";
 
 const Portfolio = ({ navigation, route }) => {
+
+  
+
   const name = route.params.name;
   const country = route.params.country;
   const totalImg = route.params.totalImg;
@@ -10,6 +13,7 @@ const Portfolio = ({ navigation, route }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: `Portfolio de ${name}`,
+    
       // headerStyle: {
       //   backgroundColor: "olive",
       // },
