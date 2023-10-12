@@ -1,59 +1,77 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
+import { globalStyles } from "../styles/AppStyles";
 
 const Home = ({ navigation }) => {
-  /*
-  {"navigation": {"addListener": [Function addListener], 
-  "canGoBack": [Function canGoBack],
-   "dispatch": [Function dispatch],
-    "getId": [Function getId],
-    "getParent": [Function getParent], 
-    "getState": [Function anonymous], 
-    "goBack": [Function anonymous],
-    "isFocused": [Function isFocused],
-    "navigate": [Function anonymous],
-    "pop": [Function anonymous],
-    "popToTop": [Function anonymous],
-    "push": [Function anonymous],
-    "removeListener": [Function removeListener], 
-    "replace": [Function anonymous], 
-    "reset": [Function anonymous],
-    "setOptions": [Function setOptions],
-    "setParams": [Function anonymous]}, 
-    "route": {
-    "key": "Home-8n3i5HCNOdfn9eaAv2n8V",
-    "name": "Home", "params": undefined
-    }
-}
-  */
+  const DATA = [
+    {
+      id: "1",
+      name: "Emma",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam",
+      country: "Allemagne",
+      totalImg: 3,
+      img: "https://cdn.pixabay.com/photo/2017/12/17/08/44/girl-3023853_960_720.jpg",
+    },
+    {
+      id: "2",
+      name: "Marcel",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam",
+      country: "France",
+      totalImg: 5,
+      img: "https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg",
+    },
+    {
+      id: "3",
+      name: "Diana",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam",
+      country: "Espagne",
+      totalImg: 4,
+      img: "https://cdn.pixabay.com/photo/2019/08/13/05/39/girl-4402542_960_720.jpg",
+    },
+    {
+      id: "4",
+      name: "Diego",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam",
+      country: "Italie",
+      totalImg: 5,
+      img: "https://cdn.pixabay.com/photo/2017/03/24/18/59/face-2171923_960_720.jpg",
+    },
+  ];
 
-  const handlePress = () => {
-    navigation.navigate("Portfolio");
-   
+  const renderProfiles = ({ item }) => {
+    return (
+      <Pressable
+        onPress={() => navigation.navigate("Portfolio", item)}
+        style={globalStyles.pofileItem}
+      >
+        <Text style={globalStyles.titleText}>{item.name}</Text>
+        <Image source={{ url: item.img }} style={globalStyles.profileImg} />
+
+        <View style={globalStyles.infoContainer}>
+          <Text style={globalStyles.infos}>{item.country}</Text>
+          <Text style={globalStyles.infos}>{item.totalImg}</Text>
+        </View>
+      </Pressable>
+    );
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}> Home </Text>
-      <Button onPress={handlePress} 
-      title="Vers Portfolio" />
+    <View style={globalStyles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderProfiles}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "skyblue",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  text: {
-    marginTop: 50,
-    fontFamily: "InriaSans-BoldItalic",
-    fontSize: 25,
-  },
-});
