@@ -36,9 +36,8 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
 
-    text: {
-
-      fontFamily: "InriaSans-BoldItalic",
-      fontSize: 25,
-    },
+  text: {
+    fontFamily: "InriaSans_700Bold_Italic",
+    fontSize: 25,
+  },
 });

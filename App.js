@@ -17,6 +17,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Home from "./screens/Home";
 import Portfolio from "./screens/Portfolio";
 import Photo from "./screens/Photo";
+import Colors from "./styles/Colors";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -41,10 +42,35 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Portfolio" component={Portfolio} />
-        <Stack.Screen name="Photo" component={Photo} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "olive",
+          },
+          headerTintColor: Colors.white,
+        }}
+      >
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: "Acceuil",
+          }}
+        />
+        <Stack.Screen
+          name="Portfolio"
+          component={Portfolio}
+          options={{
+            title: "Portfolio",
+          }}
+        />
+        <Stack.Screen
+          name="Photo"
+          component={Photo}
+          options={{
+            title: "Photo",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
