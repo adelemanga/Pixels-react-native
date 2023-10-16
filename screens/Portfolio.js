@@ -2,6 +2,8 @@ import { useLayoutEffect } from "react";
 import { View, Text, Platform, Button } from "react-native";
 import { globalStyles } from "../styles/AppStyles";
 import Colors from "../styles/Colors";
+import { MaterialIcons } from "@expo/vector-icons";
+import MaterialIconsHeader from "../components/MaterialIconsHeader";
 
 const Portfolio = ({ navigation, route }) => {
   const name = route.params.name;
@@ -19,7 +21,11 @@ const Portfolio = ({ navigation, route }) => {
       // },
       // headerTintColor: "#333",
       headerRight: () => (
-        <Button title="Cliquez" onPress={() => alert("This is a button!")} />
+        <MaterialIconsHeader
+          iconName="info-outline"
+          iconColor="black"
+          onPressIcon={() => alert(`Hello ${name}! How i can hel you?`)}
+        />
       ),
     });
   }, [navigation]);
