@@ -66,6 +66,7 @@ export default function App() {
               headerStyle: {
                 backgroundColor: route.params.favColor,
               },
+              headerRight: () => <Text>Toto</Text>,
             };
           }}
         />
