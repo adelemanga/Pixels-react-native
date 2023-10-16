@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import { View, Text, Platform } from "react-native";
+import { View, Text, Platform, Button } from "react-native";
 import { globalStyles } from "../styles/AppStyles";
 import Colors from "../styles/Colors";
 
@@ -15,9 +15,12 @@ const Portfolio = ({ navigation, route }) => {
 
       // headerStyle: {
       //   backgroundColor: favColor
-         
+
       // },
-      headerTintColor: "#333",
+      // headerTintColor: "#333",
+      headerRight: () => (
+        <Button title="Cliquez" onPress={() => alert("This is a button!")} />
+      ),
     });
   }, [navigation]);
 

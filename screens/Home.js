@@ -56,7 +56,7 @@ const Home = ({ navigation }) => {
     return (
       <PressableItem
         item={item}
-        handleNavigate={()=>navigation.navigate("Portfolio", item)}
+       navigationProp={navigation}
       />
     );
   };

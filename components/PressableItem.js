@@ -1,16 +1,15 @@
 import { Text, View, Image, Pressable } from "react-native";
 import { globalStyles } from "../styles/AppStyles";
 import Colors from "../styles/Colors";
-
 // import { useNavigation } from "react-router-dom";
 
-const PressableItem = ({ item, navigation }) => {
-  //   const navigation = useNavigation();
+const PressableItem = ({ item, navigationProp }) => {
+//   const navigation = useNavigation();
 
   return (
     <Pressable
       // onPress={handleNavigate}
-      onPress={() => navigation.navigate("Portfolio", item)}
+      onPress={() => navigationProp.navigate("Portfolio", item)}
       style={({ pressed }) => [
         { backgroundColor: pressed ? Colors.clicked : Colors.white },
         globalStyles.pofileItem,

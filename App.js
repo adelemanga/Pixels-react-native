@@ -8,7 +8,7 @@ import {
   InriaSans_700Bold_Italic,
 } from "@expo-google-fonts/inria-sans";
 
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -66,7 +66,7 @@ export default function App() {
               headerStyle: {
                 backgroundColor: route.params.favColor,
               },
-              headerRight: () => <Text>Toto</Text>,
+              
             };
           }}
         />
